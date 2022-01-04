@@ -1,11 +1,10 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ScrollToTop from "./Pages/ScrollToTop/ScrollToTop";
+import AuthProvider from "./Context/AuthProvider/AuthProvider";
 import Contact from "./Pages/ContactUs/Contact";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
-import AuthProvider from "./Context/AuthProvider/AuthProvider";
+import ScrollToTop from "./Pages/ScrollToTop/ScrollToTop";
 
 function App() {
   return (
