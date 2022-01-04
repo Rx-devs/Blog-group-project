@@ -1,7 +1,8 @@
 import React from 'react';
 import { Grid, Paper, Avatar, TextField, Button} from '@material-ui/core'
-
 import Email from '@mui/icons-material/Email';
+import Navigation from '../Shared/Navigation/Navigation';
+import Footer from '../Shared/Footer/Footer';
 
 const Contact = () => {
     const paperStyle = { padding: 20,  width: "50%", height:"70%", margin: "20px auto" }
@@ -9,6 +10,7 @@ const Contact = () => {
     const btnstyle = { margin: '8px 0' }
     return (
         <div>
+            <Navigation></Navigation>
             <Grid>
                 <Paper elevation={10} style={paperStyle}>
                     <Grid align='center'>
@@ -23,6 +25,7 @@ const Contact = () => {
                     <Button type='submit' color='primary' variant="contained" style={btnstyle} fullWidth>Submit</Button>
                 </Paper>
             </Grid>
+            <Footer></Footer>
         </div>
     );
 };

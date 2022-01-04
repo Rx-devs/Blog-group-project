@@ -1,34 +1,28 @@
-import './App.css';
-import Login from './Components/login/Login';
-import {
-  BrowserRouter,
-  Routes,
-  Route
-} from "react-router-dom";
-import Navigation from './Components/Navigation/Navigation';
-import Register from './Components/Register/Register';
-import Home from './Components/Home/Home';
-import Footer from './Components/Footer/Footer';
-import Contact from './Components/Contact/Contact';
-import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
+import "./App.css";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./Pages/ScrollToTop/ScrollToTop";
+import Contact from "./Pages/ContactUs/Contact";
+import Login from "./Pages/Login/Login";
+import Register from "./Pages/Register/Register";
+import AuthProvider from "./Context/AuthProvider/AuthProvider";
 
 function App() {
   return (
     <div>
-      <BrowserRouter> 
-      <ScrollToTop>
-        <Navigation></Navigation>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Routes> 
-        <Footer></Footer>
-        </ScrollToTop>
-      </BrowserRouter>
-
+      <AuthProvider>
+        <BrowserRouter>
+          <ScrollToTop>
+            <Routes>
+              {/* <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} /> */}
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+            </Routes>
+          </ScrollToTop>
+        </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }
