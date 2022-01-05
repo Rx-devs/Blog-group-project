@@ -6,8 +6,8 @@ import Career from '../Career/Career';
 const Home = () => {
     return (
         <div>
-            {/* <Navigation></Navigation> */}
-            <Career />
+            <Navigation></Navigation>
+            <Career></Career>
             <Footer></Footer>
         </div>
     );
