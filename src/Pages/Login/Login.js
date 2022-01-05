@@ -1,20 +1,14 @@
-import React, { useState } from "react";
 import {
-  Grid,
-  Paper,
-  Avatar,
-  TextField,
-  Button,
-  Typography,
-  CircularProgress,
+  Avatar, Button, CircularProgress, Grid,
+  Paper, TextField, Typography
 } from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import { Alert } from "@mui/material";
+import React, { useState } from "react";
 import GoogleButton from "react-google-button";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
-import Navigation from "../Shared/Navigation/Navigation";
-import Footer from "../Shared/Footer/Footer";
 import useAuth from "../../hooks/useAuth/useAuth";
-import { Alert } from "@mui/material";
+import Footer from "../Shared/Footer/Footer";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({});
@@ -47,7 +41,7 @@ const Login = () => {
   const btnstyle = { margin: "8px 0" };
   return (
     <div>
-      <Navigation></Navigation>
+      {/* <Navigation></Navigation> */}
       <Grid>
         <Paper elevation={10} style={paperStyle}>
           <Grid align="center">

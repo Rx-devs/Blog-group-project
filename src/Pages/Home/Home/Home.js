@@ -1,12 +1,12 @@
 import React from 'react';
 import Footer from '../../Shared/Footer/Footer';
-import Navigation from '../../Shared/Navigation/Navigation';
+// import Navigation from '../../Shared/Navigation/Navigation';
 import Career from '../Career/Career';
 
 const Home = () => {
     return (
         <div>
-            <Navigation></Navigation>
+            {/* <Navigation></Navigation> */}
             <Career />
             <Footer></Footer>
         </div>
