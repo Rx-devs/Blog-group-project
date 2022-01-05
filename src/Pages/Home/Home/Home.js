@@ -1,10 +1,15 @@
 import React from 'react';
-import Career from '../Career/Career';
+import Footer from '../../Shared/Footer/Footer';
+import Navigation from '../../Shared/Navigation/Navigation';
+import Careers from '../Careers/Careers';
+
 
 const Home = () => {
     return (
         <div>
-            <Career />
+            <Navigation></Navigation>
+            <Careers></Careers>
+            <Footer></Footer>
         </div>
     );
 };
