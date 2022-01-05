@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 const PostBlog = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        fetch('https://young-castle-89002.herokuapp.com/services', {
+        fetch('http://localhost:5000/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
