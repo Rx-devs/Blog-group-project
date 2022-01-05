@@ -1,29 +1,22 @@
-import React, { useState } from "react";
 import {
-  Grid,
-  Paper,
-  Avatar,
-  TextField,
-  Button,
-  Typography,
-  CircularProgress,
+  Avatar, Button, Grid,
+  Paper, TextField, Typography
 } from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import GoogleButton from "react-google-button";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
-import Navigation from "../Shared/Navigation/Navigation";
-import Footer from "../Shared/Footer/Footer";
-import useAuth from "../../hooks/useAuth/useAuth";
 import { Alert } from "@mui/material";
+import React, { useState } from "react";
+// import GoogleButton from "react-google-button";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth/useAuth";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({});
-  const { user, loginUser, signInWithGoogle, isLoading, authError } = useAuth();
+  const { user, loginUser, signInWithGoogle, authError } = useAuth();
 
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleOnChange = (e) => {
+  const handleOnBlur = (e) => {
     const field = e.target.name;
     const value = e.target.value;
     const newLoginData = { ...loginData };
@@ -47,7 +40,7 @@ const Login = () => {
   const btnstyle = { margin: "8px 0" };
   return (
     <div>
-      <Navigation></Navigation>
+      {/* <Navigation></Navigation> */}
       <Grid>
         <Paper elevation={10} style={paperStyle}>
           <Grid align="center">
@@ -61,7 +54,7 @@ const Login = () => {
               label="Email"
               placeholder="Enter Email"
               name="email"
-              onChange={handleOnChange}
+              onBlur={handleOnBlur}
               fullWidth
               required
             />
@@ -71,6 +64,7 @@ const Login = () => {
               type="password"
               fullWidth
               required
+              onBlur={handleOnBlur}
             />
             <Button
               type="submit"
@@ -82,15 +76,16 @@ const Login = () => {
               Sign in
             </Button>
             <Typography variant="h6">Or</Typography>
-            <GoogleButton onClick={handleGoogleSignIn} />
+            <Button variant="contained" onClick={handleGoogleSignIn}>Google</Button>
+            {/* <GoogleButton  /> */}
             <Typography>
               {" "}
               Do you have an account?
-              <NavLink style={{ textDecoration: "none" }} to="/register">
+              <Link style={{ textDecoration: "none" }} to="/register">
                 Sign Up
-              </NavLink>
+              </Link>
             </Typography>
-            {isLoading && <CircularProgress />}
+            {/* {isLoading && <CircularProgress />} */}
             {user?.email && (
               <Alert severity="success">Login successfully!</Alert>
             )}
@@ -98,7 +93,7 @@ const Login = () => {
           </form>
         </Paper>
       </Grid>
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </div>
   );
 };

@@ -1,13 +1,13 @@
-import React from 'react';
-import { Grid, Container, Box, Typography, Button } from '@material-ui/core'
-import { NavLink } from 'react-router-dom';
+import { Box, Button, Container, Grid, Typography } from '@material-ui/core';
+import EmailIcon from '@mui/icons-material/Email';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
+import HomeIcon from '@mui/icons-material/Home';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import HomeIcon from '@mui/icons-material/Home';
-import EmailIcon from '@mui/icons-material/Email';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -33,50 +33,50 @@ const Footer = () => {
                                 </Typography>
                                 <Box>
                                     <Box>
-                                        <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/home">
+                                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/home">
                                             <Button
                                                 sx={{ my: 2, color: 'white', display: 'block' }}
                                             >
                                                 Home
                                             </Button>
 
-                                        </NavLink>
+                                        </Link>
                                     </Box>
                                     <Box>
-                                        <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/blogs">
+                                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/blogs">
                                             <Button
                                                 sx={{ my: 2, color: 'white', display: 'block' }}
                                             >
                                                 Blogs
                                             </Button>
-                                        </NavLink>
+                                        </Link>
                                     </Box>
                                     <Box>
-                                        <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/contact">
+                                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/contact">
                                             <Button
                                                 sx={{ my: 2, color: 'white', display: 'block' }}
                                             >
                                                 Contact
                                             </Button>
-                                        </NavLink>
+                                        </Link>
                                     </Box>
                                     <Box>
-                                        <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/aboutUs">
+                                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/aboutUs">
                                             <Button
                                                 sx={{ my: 2, color: 'white', display: 'block' }}
                                             >
                                                 About Us
                                             </Button>
-                                        </NavLink>
+                                        </Link>
                                     </Box>
                                     <Box>
-                                        <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/login">
+                                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/login">
                                             <Button
                                                 sx={{ my: 2, color: 'white', display: 'block' }}
                                             >
                                                 Login
                                             </Button>
-                                        </NavLink>
+                                        </Link>
                                     </Box>
                                 </Box>
                             </Box>
