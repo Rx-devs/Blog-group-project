@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "heading": "Concurrency model & Event loop in javascript",
+        "decsription": "JavaScript has a concurrency model based on an event loop, which is responsible for executing the code, collecting and processing events, and executing queued sub-tasks. Before understanding the process, we have to understand some important keywords. They are call stack, web API, Queue, Event loop.The JavaScript execution contexts are executed via the JavaScript engine. To manage these execution contexts, the JS engine uses the call stack. So, the JS call stack is a data structure that keeps track information of the functions being called and executed. When javascript engine detects a function as a asynchronous function, then the method will be sent in web APIs. Here asynchronous function waits to resolve the code.Call back queue or message queue contains the list of messages to be processed and their associated call back functions. The messages are queued in response of an external events . It follows FIFO orders. FIFO means first in first out. When the asynchronous task was resolved, then it will be sent in call back queue.",
+        "image": "https://i.ibb.co/yncVWFM/thumb.jpg",
+        "category": "programming",
+        "writer": "Jhon Doe"
+    },
+    {
+        "id": 2,
+        "heading": "Synchronous and Asynchronous programming",
+        "decsription": "Asynchronous is an adjective that means “not occurring at the same time.” In digital technology, it refers to “having each operation started only after the preceding operation is completed.” Though different, these two definitions refer to things that occur at different times. In 2020, asynchronous has seen a lot of use related to virtual learning environments. For parents who may be confused about its meaning, asynchronous here refers to learning methods that let students work at their own pace. Instead of the rigid constraints of a traditional classroom, kids participating in asynchronous learning can move through assignments at their own speed and are often aided by online discussion boards and emails. In an asynchronous course, a student does not need to meet in real time with a live class or teacher.",
+        "image": "https://i.ibb.co/NxTn78z/asynchronous.png",
+        "category": "programming",
+        "writer": "Jhon vili"
+    },
+    {
+        "id": 3,
+        "heading": "What is hoisting? Hoisting in Javascript",
+        "decsription": "Here I am not gonna define hoisting but simply explain hoisting. In javascript, the code executes in two phases. They are creational phase and executional phase. In the creational phase, any code will not execute. Here variable will be created with the undefined value. For function, there will create a reference. When the second phase/executional phase starts, it will start executing all code. Then variable created in executional phase finds value. So if you use a variable before initializing you will get undefined. Because it was created in the creational phase but didn’t find any value. In the case of a function, you can use function and it will work without any error or problem. Because in creational phase a reference created for function, in executional phase when it finds the function it will call function reference. Then it is executed normally. So in my eye, hoisting means lifting the state up or using variable/function before initializing.",
+        "image": "https://i.ibb.co/drfm21w/hoisting.png",
+        "category": "programming",
+        "writer": "Abullah"
+    },
+    {
+        "id": 5,
+        "heading": "Differerence between var vs let",
+        "decsription": "In javascript, you can declare variables with three keywords. Those keywords are var, let, and const. Here let and const introduced in ES6. From the beginning, var is used to declare a variable.The core difference in those three keywords is in scope. When you use var then there exists only global scope and function scope. Another core difference is hoisting. If you use it before declaration then you get undefined. If you don’t concern about hoisting please follow some articles.Let introduce us new scope. That is block scope. When the variable is declared with let surrounded with “{” and “}” then it creates block scope. You can’t access this variable without block scope. It is a great addition to ES6. In another hand variable declared with let doesn’t support hoisting. If you use this variable before declaration you will get an error. In fast loop with an asynchronous task, we had to use IIFE. But it reduces our suffering.",
+        "image": "https://i.ibb.co/M1vtNnn/let-VSConst.jpg",
+        "category": "programming",
+        "writer": "Ratan saha"
+    },
+    {
+        "id": 6,
+        "heading": "CSS CALC() function",
+        "decsription": "The calc() function contains a calculation which should be used as the value of the property. This function makes it easy to position an object with a set margin. The calc() function takes a specific expression as its argument, with the output of the expression being used as the value. The calc() is a native CSS method for doing basic maths correctly in CSS as a substitute for any longitudinal value or almost any number. This has four basic operators in math: add (+), subtract (-), multiply (*), and divide (/). Another case for calc() function is to help make sure that form fields fit into the space available, without extruding beyond the edge of the container while maintaining an acceptable margin.",
+        "image": "https://i.ibb.co/nwHnMh4/cssCalc.jpg",
+        "category": "programming",
+        "writer": "Dipta saha"
+    },
+    {
+        "id": 4,
+        "heading": "useState hook in react,simple explaination of useState.",
+        "decsription": "In react you can’t change dom without the state. In the class-based component, we can declare a state inside of the class. We can’t change the value of state directly. Here we can change the value of state by the setState() method. When the value of state changes the dom will rerender else it will not. Before react 16.8 there was no way to declare a state in a functional component. In react 16.8 there were introduced some hooks . useState is one of them. Here the declaration system of useState “const [state,setState]=useState()”. Here state works the same as the class-based component state. On the other hand, setState is a function by which you can set new/updated value of the state. That is also similar to setState() function in class-based component. There was no noticeable difference using hooks or state. If you use class-based component then you have to use state. Otherwise, you have to use useState hook.",
+        "image": "https://i.ibb.co/Vq4B9X1/useState.png",
+        "category": "programming",
+        "writer": "Jhankar Mahbub"
+    },
+    {
+        "id": 4,
+        "heading": "useState hook in react,simple explaination of useState.",
+        "decsription": "In react you can’t change dom without the state. In the class-based component, we can declare a state inside of the class. We can’t change the value of state directly. Here we can change the value of state by the setState() method. When the value of state changes the dom will rerender else it will not. Before react 16.8 there was no way to declare a state in a functional component. In react 16.8 there were introduced some hooks . useState is one of them. Here the declaration system of useState “const [state,setState]=useState()”. Here state works the same as the class-based component state. On the other hand, setState is a function by which you can set new/updated value of the state. That is also similar to setState() function in class-based component. There was no noticeable difference using hooks or state. If you use class-based component then you have to use state. Otherwise, you have to use useState hook.",
+        "image": "https://i.ibb.co/Vq4B9X1/useState.png",
+        "category": "programming",
+        "writer": "Megna debonath"
+    },
+    {
+        "id": 4,
+        "heading": "useState hook in react,simple explaination of useState.",
+        "decsription": "In react you can’t change dom without the state. In the class-based component, we can declare a state inside of the class. We can’t change the value of state directly. Here we can change the value of state by the setState() method. When the value of state changes the dom will rerender else it will not. Before react 16.8 there was no way to declare a state in a functional component. In react 16.8 there were introduced some hooks . useState is one of them. Here the declaration system of useState “const [state,setState]=useState()”. Here state works the same as the class-based component state. On the other hand, setState is a function by which you can set new/updated value of the state. That is also similar to setState() function in class-based component. There was no noticeable difference using hooks or state. If you use class-based component then you have to use state. Otherwise, you have to use useState hook.",
+        "image": "https://i.ibb.co/Vq4B9X1/useState.png",
+        "category": "programming",
+        "writer": "Isabela"
+    },
+    {
+        "id": 4,
+        "heading": "useState hook in react,simple explaination of useState.",
+        "decsription": "In react you can’t change dom without the state. In the class-based component, we can declare a state inside of the class. We can’t change the value of state directly. Here we can change the value of state by the setState() method. When the value of state changes the dom will rerender else it will not. Before react 16.8 there was no way to declare a state in a functional component. In react 16.8 there were introduced some hooks . useState is one of them. Here the declaration system of useState “const [state,setState]=useState()”. Here state works the same as the class-based component state. On the other hand, setState is a function by which you can set new/updated value of the state. That is also similar to setState() function in class-based component. There was no noticeable difference using hooks or state. If you use class-based component then you have to use state. Otherwise, you have to use useState hook.",
+        "image": "https://i.ibb.co/Vq4B9X1/useState.png",
+        "category": "programming",
+        "writer": "Piyetro"
+    },
+    {
+        "id": 4,
+        "heading": "useState hook in react,simple explaination of useState.",
+        "decsription": "In react you can’t change dom without the state. In the class-based component, we can declare a state inside of the class. We can’t change the value of state directly. Here we can change the value of state by the setState() method. When the value of state changes the dom will rerender else it will not. Before react 16.8 there was no way to declare a state in a functional component. In react 16.8 there were introduced some hooks . useState is one of them. Here the declaration system of useState “const [state,setState]=useState()”. Here state works the same as the class-based component state. On the other hand, setState is a function by which you can set new/updated value of the state. That is also similar to setState() function in class-based component. There was no noticeable difference using hooks or state. If you use class-based component then you have to use state. Otherwise, you have to use useState hook.",
+        "image": "https://i.ibb.co/Vq4B9X1/useState.png",
+        "category": "programming",
+        "writer": "Haji Danesh"
+    }
+]

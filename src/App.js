@@ -8,6 +8,8 @@ import MakeAdmin from "./Pages/Dashboard/Admin/MakeAdmin/MakeAdmin";
 import ManageBlogs from "./Pages/Dashboard/Admin/ManageBlogs/ManageBlogs";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import PostBlog from "./Pages/Dashboard/User/PostBlog/PostBlog";
+import SingleBlog from "./Pages/AllBlogs/SingleBlog";
+import Contact from "./Pages/ContactUs/Contact";
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Login/Login/Login";
 import Register from "./Pages/Register/Register";
@@ -33,6 +35,7 @@ function App() {
                 <Route path={`/dashboard/manageBlogs`} element={<AdminRoute> <ManageBlogs /> </AdminRoute>}>
                 </Route>
               </Route>
+              <Route path="/blog/:id" element={<SingleBlog />} />
             </Routes>
           {/* </ScrollToTop> */}
         </Router>
