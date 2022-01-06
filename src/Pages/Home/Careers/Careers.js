@@ -10,11 +10,11 @@ import { Container } from '@mui/material';
 
 const Careers = () => {
 
-  const [careers, setcareers] = useState([]);
+  const [Carriers, setCarriers] = useState([]);
   useEffect(() => {
-    fetch('./career.json')
+    fetch('http://localhost:5000/carrierBlogs')
       .then(res => res.json())
-      .then(data => setcareers(data))
+      .then(data => setCarriers(data))
   }, []);
 
   return (
@@ -25,7 +25,7 @@ const Careers = () => {
       <Box sx={{ flexGrow: 1 }} sx={{}}>
         <Grid container >
           {
-            careers.map(career => <Career key={career.id} career={career} />)
+            Carriers.map(Carrier => <Career key={Carrier.id} Carrier={Carrier} />)
           }
         </Grid>
       </Box>

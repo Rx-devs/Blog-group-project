@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import AuthProvider from "./Context/AuthProvider/AuthProvider";
+import About from "./Pages/About/About";
 import Contact from "./Pages/ContactUs/Contact";
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Login/Login";
@@ -18,6 +19,7 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/aboutUs" element={<About />} />
               <Route path="/register" element={<Register />} />
             </Routes>
           </ScrollToTop>

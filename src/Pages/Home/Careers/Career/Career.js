@@ -9,8 +9,8 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 
 
-const Career = ({ career }) => {
-    const { post_catagory, post_name, post_description, post_image, user_image, user_name } = career;
+const Career = ({ Carrier }) => {
+    const { blog_catagory, blog_name, blog_description, blog_image, user_image, user_name } = Carrier;
 
     return (
         <>
@@ -20,20 +20,23 @@ const Career = ({ career }) => {
                     alignItems="center"
                     justifyContent="center"
                 >
-                    <Card sx={{ maxWidth: 545, marginTop: "30px" }}>
-                        <CardActionArea>
+                    <Card sx={{ maxWidth: 345, marginTop: "30px" }}>
+                        <CardActionArea sx={{ display: "flex", flexDirection: "column" }}>
                             <CardMedia
                                 component="img"
                                 height="140"
-                                image={post_image}
+                                image={blog_image}
                                 alt="green iguana"
                             />
                             <CardContent>
                                 <Typography className='tag tag-blue'>
-                                    {post_catagory}
+                                    {blog_catagory}
                                 </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    {post_description}
+                                <Typography variant="h5" color="text.secondary">
+                                    {blog_name}
+                                </Typography>
+                                <Typography variant="body2" color="text.secondary" sx={{ fontWeight: "12px" }}>
+                                    {blog_description}
                                 </Typography>
                                 <div className="card__footer">
                                     <div className="user">
