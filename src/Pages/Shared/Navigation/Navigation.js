@@ -167,6 +167,15 @@ const Navigation = () => {
                 Dashboard
               </NavLink>
             </Button>
+            <Button>
+              <NavLink
+                to="/allBlogs"
+                style={({ isActive }) =>
+              isActive ? activeStyle : customStyle
+            }>
+                Blogs
+              </NavLink>
+            </Button>
             {user.email ?
               <Button onClick={logout} variant="contained">logout</Button>
               :
