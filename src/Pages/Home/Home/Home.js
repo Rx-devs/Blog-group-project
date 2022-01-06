@@ -1,13 +1,15 @@
 import React from 'react';
 import Footer from '../../Shared/Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
-import Career from '../Career/Career';
+import ProgrammingBlog from '../Blogs/ProgrammingBlog';
+import Carriers from '../Carriers/Carriers';
 
 const Home = () => {
     return (
         <div>
             <Navigation></Navigation>
-            <Career></Career>
+            <ProgrammingBlog />
+            <Carriers></Carriers>
             <Footer></Footer>
         </div>
     );

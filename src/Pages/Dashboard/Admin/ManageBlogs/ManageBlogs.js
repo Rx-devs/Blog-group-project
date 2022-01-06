@@ -14,7 +14,7 @@ const ManageBlogs = () => {
     const [services, setservices] = React.useState([]);
 
     React.useEffect(() => {
-        fetch(`https://young-castle-89002.herokuapp.com/services`)
+        fetch(`http://localhost:5000/services`)
             .then(res => res.json())
             .then(data => setservices(data))
         
