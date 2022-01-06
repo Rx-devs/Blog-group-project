@@ -25,8 +25,8 @@ const ProgrammingBlog = () => {
                             slideBlogs.map(blog => <Box blog={blog} key={blog._1} sx={{ position: 'relative' }}>
                             <img style={{ width: '100%' }} src={blog.blog_image} alt="Blog"/>
                             <Box style={{ position: 'absolute', bottom: "15px" }}>
-                                <Typography sx={{ borderRadius: 10, mx: '10px', bgcolor: '#FF3E30', px: '5px', width: '80px' }} variant="caption" display="block" gutterBottom>
-                                    programming
+                                <Typography sx={{ borderRadius: 10, mx: '10px', bgcolor: '#FF3E30', p: '6px', display:'inline-block' }} variant="caption" display="block" gutterBottom>
+                                    Programming Blogs
                                 </Typography>
                                 <Typography sx={{ fontWeight: 'bold', mx: '10px' }} variant="h4" component="div" gutterBottom>
                                     {blog.blog_name}
