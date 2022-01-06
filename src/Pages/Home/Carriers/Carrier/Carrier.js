@@ -8,32 +8,30 @@ import Typography from '@mui/material/Typography';
 import React from 'react';
 import './Carrier.css';
 
-
-const Carrier = ({ career: carrier }) => {
-    const { post_catagory, post_name, post_description, post_image, user_image, user_name } = carrier;
+const Carrier = ({carrier }) => {
+    const { blog_catagory, blog_name, blog_description, blog_image, user_image, user_name } = carrier;
 
     return (
         <>
-
             <Box sx={{ flexGrow: 1 }}>
                 <Grid container spacing={2} direction="column"
                     alignItems="center"
                     justifyContent="center"
                 >
-                    <Card sx={{ maxWidth: 545, marginTop: "30px" }}>
+                    <Card sx={{ display:'flex', flexDirection:'column', maxWidth: 545, marginTop: "30px" }}>
                         <CardActionArea>
                             <CardMedia
                                 component="img"
                                 height="140"
-                                image={post_image}
+                                image={blog_image}
                                 alt="green iguana"
                             />
                             <CardContent>
                                 <Typography className='tag tag-blue'>
-                                    {post_catagory}
+                                    {blog_catagory}
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary">
-                                    {post_description}
+                                    {blog_description}
                                 </Typography>
                                 <div className="card__footer">
                                     <div className="user">

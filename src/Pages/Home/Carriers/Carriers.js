@@ -6,13 +6,11 @@ import React, { useEffect, useState } from 'react';
 import Carrier from './Carrier/Carrier';
 
 
-
-
 const Carriers = () => {
 
   const [carriers, setCarriers] = useState([]);
   useEffect(() => {
-    fetch('./carrier.json')
+    fetch('./Carrier.JSON')
       .then(res => res.json())
       .then(data => setCarriers(data))
   }, []);
