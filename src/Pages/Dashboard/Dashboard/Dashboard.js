@@ -2,7 +2,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Button, List, ListItem, ListItemText } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
+// import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
@@ -21,7 +21,7 @@ const drawerWidth = 200;
 function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    const { logOut, admin, user } = useAuth();
+    const { logout, admin, user } = useAuth();
     
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -39,7 +39,7 @@ function Dashboard(props) {
 					</ListItemText>
                 </ListItem>
                 <Divider />
-                <ListItem  button >
+                <ListItem  button>
                     <ListItemText>
                         <Link style={linkStyle} to={`/dashboard/postBlog`}>Post a Blog</Link>
                     </ListItemText>
@@ -47,7 +47,7 @@ function Dashboard(props) {
                 <Divider />
                 <ListItem  button >
                     <ListItemText>
-                    <Button sx={{backgroundColor:'#ed1c27'}} onClick={logOut} variant="contained">LogOut</Button>
+                    <Button sx={{backgroundColor:'#ff3e30'}}  onClick={logout} variant="contained">logout</Button>
                     </ListItemText>
                 </ListItem>
                 <Divider />
@@ -75,7 +75,7 @@ function Dashboard(props) {
                 <Divider />
                 <ListItem  button >
                     <ListItemText>
-                    <Button sx={{backgroundColor:'#ed1c27'}} onClick={logOut} variant="contained">LogOut</Button>
+                    <Button onClick={logout} sx={{backgroundColor:'#ff3e30'}} variant="contained">logout</Button>
                     </ListItemText>
                 </ListItem>
                 <Divider />
@@ -87,12 +87,11 @@ function Dashboard(props) {
 
     return (
         <Box sx={{ display: 'flex' }}>
-            <CssBaseline />
             <AppBar
                 position="fixed"
                 sx={{
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
-                    ml: { sm: `${drawerWidth}px` }, background: '#f10e66'
+                    ml: { sm: `${drawerWidth}px` }, background: '#ff3e30'
                 }}
             >
                 <Toolbar>
@@ -101,9 +100,8 @@ function Dashboard(props) {
                         aria-label="open drawer"
                         edge="start"
                         onClick={handleDrawerToggle}
-                        sx={{ mr: 2, display: { sm: 'none' } }}
                     >
-                        <MenuIcon />
+                        <MenuIcon sx={{ mr: 4, display: { sm: 'block', md:'none' } }} />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
                         Dashboard

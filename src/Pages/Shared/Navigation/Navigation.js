@@ -47,12 +47,12 @@ const Navigation = () => {
         <Toolbar disableGutters>
           {/* Large Device Logo*/}
           <Typography
-            variant="h5"
+            variant="h4"
             noWrap
             component="div"
-            sx={{ fontWeight:"700", color: "#000000", mr: 2, display: { xs: 'none', md: 'flex' } }}
+            sx={{ color: "#ff3e30", mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            Blogs
+            BlogsFeed
           </Typography>
 
           {/* Small Device */}
@@ -103,18 +103,18 @@ const Navigation = () => {
                 Dashboard
               </NavLink>
               </MenuItem>
-              {/* <MenuItem onClick={handleCloseNavMenu}>
+              <MenuItem onClick={handleCloseNavMenu}>
                 <NavLink
-                to="/blogs"
+                to="/allBlogs"
                 style={({ isActive }) =>
               isActive ? activeStyle : customStyle
             }>
                 Blogs
               </NavLink> 
-              </MenuItem> */}
+              </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
                 {user.email ?
-                  <Button onClick={logout} variant="contained">logout</Button>
+                  <Button variant="text" style={{textTransform: 'capitalize', color:'#ff3e30', fontSize:'16px'}} onClick={logout}>logout</Button>
                   :
                   <NavLink
                to="/login"
@@ -133,13 +133,13 @@ const Navigation = () => {
             variant="h5"
             noWrap
             component="div"
-            sx={{fontWeight:"700", color: "#000000", flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+            sx={{color: "#ff3e30", flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-            Blogs
+            BlogsFeed
           </Typography>
 
           {/* Large Device */}
-          <Box onClick={handleCloseNavMenu} sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box onClick={handleCloseNavMenu} sx={{ mx:'auto', display: { xs: 'none', md: 'flex' } }}>
             <Button>
               <NavLink
                 to="/home"
@@ -177,7 +177,7 @@ const Navigation = () => {
               </NavLink>
             </Button>
             {user.email ?
-              <Button onClick={logout} variant="contained">logout</Button>
+              <Button variant="text" style={{textTransform: 'capitalize', color:'#ff3e30', fontSize:'16px'}} onClick={logout}>logout</Button>
               :
               <Button>
               <NavLink
@@ -193,10 +193,11 @@ const Navigation = () => {
 			
           <Box sx={{ flexGrow: 0, display:'flex', alignItems:'center' }}>
 			  {user.email && <Typography
-			  sx={{color:'#000000', mx:3}}
+              sx={{ color: '#000000', display: 'inline-block' }}
+              style={{marginRight:'10px'}}
             variant="subtitle1"
           >
-		  Hi, {user?.displayName}
+		  Hi,{user?.displayName}
 			  </Typography>}
 		  <Avatar alt="Remy Sharp" src={user?.photoURL} />
 		  {/*

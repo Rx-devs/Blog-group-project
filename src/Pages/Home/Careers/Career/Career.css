@@ -13,8 +13,8 @@ images {
     width: max-content;
   }
   .tag-blue {
-    background: #f25663;
-    background: linear-gradient(to bottom, #ee6767, #ec6885);
+    background: #ff3e30;
+    background: linear-gradient(to bottom, #ff3e30, #ec6885);
     color: #fafafa;
   }
   

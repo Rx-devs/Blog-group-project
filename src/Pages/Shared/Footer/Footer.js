@@ -12,8 +12,9 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <div>
-            <Box  elevation={10}>
+            <Box elevation={10}>
                 <Container maxWidth="lg">
+                    <hr />
                     <Grid container spacing={5}>
                         <Grid item xs={12} sm={3} >
                             <Box >
@@ -113,10 +114,10 @@ const Footer = () => {
                             </Box>
                         </Grid>
                     </Grid>
-                    <Box sx={{ color: 'text.secondary' }} textAlign="center" pt={{ sm: 10 }} pb={{ xs: 5, sm: 0, md:5}} >
+                </Container>
+                <Box sx={{ color: 'text.secondary', color:'#ffffff', backgroundColor:'#ff3e30', p:2 }} textAlign="center">
                         © 2022 Newsfeed - Developed with by Team-33
                     </Box>
-                </Container>
             </Box>
         </div >
     );

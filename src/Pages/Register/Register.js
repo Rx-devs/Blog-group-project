@@ -33,13 +33,12 @@ const Register = () => {
   };
 
   const paperStyle = {
-    padding: 20,
-    height: "70vh",
-    width: 280,
+    padding: 30,
+    width: 360,
     margin: "20px auto",
   };
-  const avatarStyle = { backgroundColor: "#1bbd7e" };
-  const btnstyle = { margin: "8px 0" };
+  const avatarStyle = { backgroundColor: "#ff3e30" };
+  const btnstyle = { margin: "10px 0", padding:'12px 0', backgroundColor:"#ff3e30",color:'#ffffff' };
 
   return (
     <>
@@ -55,6 +54,7 @@ const Register = () => {
           {!isLoading && (
             <form onSubmit={handleLoginSubmit}>
               <TextField
+                style={{marginBottom:'10px'}}
                 label="Username"
                 placeholder="Enter username"
                 name="name"
@@ -63,6 +63,7 @@ const Register = () => {
                 required
               />
               <TextField
+                style={{marginBottom:'10px'}}
                 label="Email"
                 placeholder="Enter email"
                 name="email"
@@ -72,6 +73,7 @@ const Register = () => {
                 required
               />
               <TextField
+                style={{marginBottom:'10px'}}
                 label="Password"
                 placeholder="Enter Password"
                 type="password"
@@ -81,6 +83,7 @@ const Register = () => {
                 required
               />
               <TextField
+                style={{marginBottom:'10px'}}
                 label="Confirm Password"
                 placeholder="Enter password"
                 type="password"
@@ -90,6 +93,7 @@ const Register = () => {
                 required
               />
               <Button
+                style={{marginBottom:'10px'}}
                 type="submit"
                 color="primary"
                 variant="contained"
@@ -100,9 +104,9 @@ const Register = () => {
               </Button>
               <Typography>
                 {" "}
-                Are you already registered?
-                <Link style={{ textDecoration: "none" }} to="/login">
-                  Sign In
+                Are you already registered? ..
+                <Link style={{ textDecoration: "none", color:'#ff3e30', fontWeight:'600' }} to="/login">
+                  Sign In Now
                 </Link>
               </Typography>
             </form>

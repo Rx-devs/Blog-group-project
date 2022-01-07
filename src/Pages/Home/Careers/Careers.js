@@ -1,36 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import Career from './Career/Career';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
 import { Container } from '@mui/material';
-
-
-
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCarrierBlogs } from "../../../redux/slices/blogSlice";
+import Career from './Career/Career';
 
 const Careers = () => {
-
-  const [Carriers, setCarriers] = useState([]);
-  useEffect(() => {
-    fetch('http://localhost:5000/carrierBlogs')
-      .then(res => res.json())
-      .then(data => setCarriers(data))
-  }, []);
-
+  const dispatch = useDispatch();
+    const carrierBlogs = useSelector((state) => state.blogs.carrierBlogs);
+    useEffect(() => {
+        dispatch(fetchCarrierBlogs());
+    }, [dispatch]);
+  
   return (
-    <Container sx={{ margin: "60px" }}>
-      <Typography variant="h5" gutterBottom component="div">
+    <div style={{paddingTop:"60px"}}>
+    <Container>
+      <Typography variant="h4" style={{textAlign:'center',marginBottom:'30px'}} gutterBottom component="div">
         Career Blogs
       </Typography>
-      <Box sx={{ flexGrow: 1 }} sx={{}}>
-        <Grid container >
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={3} >
           {
-            Carriers.map(Carrier => <Career key={Carrier.id} Carrier={Carrier} />)
+            carrierBlogs.map(Carrier => <Career key={Carrier._id} Carrier={Carrier} />)
           }
         </Grid>
       </Box>
     </Container>
-
+    </div>
   );
 };
 

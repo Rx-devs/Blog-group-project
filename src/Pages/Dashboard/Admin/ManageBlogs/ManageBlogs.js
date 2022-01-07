@@ -11,12 +11,12 @@ import { Box } from '@mui/system';
 import * as React from 'react';
 
 const ManageBlogs = () => {
-    const [services, setservices] = React.useState([]);
+    const [blogs, setBlogs] = React.useState([]);
 
     React.useEffect(() => {
-        fetch(`http://localhost:5000/services`)
+        fetch(`https://quiet-sierra-31697.herokuapp.com/allBlogs`)
             .then(res => res.json())
-            .then(data => setservices(data))
+            .then(data => setBlogs(data))
         
     }, []);
     // table style
@@ -43,26 +43,24 @@ const ManageBlogs = () => {
     return (
         <Box>
             <Typography sx={{ textAlign: 'left', my:2 }} variant="h5" component="div" gutterBottom>
-                Manage All services
+                Manage All blogs
             </Typography>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 'auto' }} aria-label="customized table">
                     <TableHead>
                         <TableRow>
-                            <StyledTableCell>service Image</StyledTableCell>
-                            <StyledTableCell align="center">service Name</StyledTableCell>
-                            <StyledTableCell align="center">service Price</StyledTableCell>
-                            <StyledTableCell align="center">Manage service</StyledTableCell>
+                            <StyledTableCell>Blog Image</StyledTableCell>
+                            <StyledTableCell align="center">Blog Name</StyledTableCell>
+                            <StyledTableCell align="center">Manage Blog</StyledTableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {services.map((service) => (
-                            <StyledTableRow key={service._id}>
+                        {blogs.map((blog) => (
+                            <StyledTableRow key={blog._id}>
                                 <StyledTableCell component="th" scope="row">
-                                    <img style={{width:'40px'}} src={service.img} alt="" />
+                                    <img style={{width:'100px'}} src={blog.blog_image} alt="Blog" />
                                 </StyledTableCell>
-                                <StyledTableCell align="center">{service.name}</StyledTableCell>
-                                <StyledTableCell align="center">${service.price}</StyledTableCell>
+                                <StyledTableCell align="center">{blog.blog_name}</StyledTableCell>
                                 <StyledTableCell align="center">
                                     <Button variant="contained">Delete</Button>
                                 </StyledTableCell>

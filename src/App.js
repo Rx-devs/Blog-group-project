@@ -3,9 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import AuthProvider from "./Context/AuthProvider/AuthProvider";
 import About from "./Pages/About/About";
-import Contact from "./Pages/ContactUs/Contact";
 import AllBlogs from "./Pages/AllBlogs/AllBlogs";
-import SingleBlog from "./Pages/AllBlogs/SingleBlog";
+import SingleBlog from "./Pages/AllBlogs/SingleBlog/SingleBlog";
 import AdminRoute from "./Pages/Authentication/AdminRoute/AdminRoute";
 import PrivateRoute from "./Pages/Authentication/PrivateRoute/PrivateRoute";
 import MakeAdmin from "./Pages/Dashboard/Admin/MakeAdmin/MakeAdmin";
@@ -31,6 +30,7 @@ function App() {
             <Route path="/aboutUs" element={<About />} />
             <Route path="/register" element={<Register />} />
             <Route path="/allBlogs" element={<AllBlogs />} />
+            <Route path="/blog/:blogId" element={<SingleBlog />} />
             <Route path="/dashboard" element={<PrivateRoute> <Dashboard /> </PrivateRoute>}>
               <Route path={`/dashboard/postBlog`} element={<PostBlog></PostBlog>}>
               </Route>
@@ -39,7 +39,7 @@ function App() {
               <Route path={`/dashboard/manageBlogs`} element={<AdminRoute> <ManageBlogs /> </AdminRoute>}>
               </Route>
             </Route>
-            <Route path="/blog/:id" element={<SingleBlog />} />
+            
           </Routes>
           {/* </ScrollToTop> */}
         </Router>

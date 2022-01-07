@@ -2,10 +2,10 @@ import { Box, Button, Container, Divider, Typography } from '@material-ui/core';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import React from 'react';
-import programmingBlog from '../../fakeProgrammingBlog.json';
-import Footer from '../Shared/Footer/Footer';
-import Navigation from '../Shared/Navigation/Navigation';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import Footer from '../../Shared/Footer/Footer';
+import Navigation from '../../Shared/Navigation/Navigation';
 import CommentSection from './CommentSection';
 
 const user = {
@@ -14,23 +14,33 @@ const user = {
     bio: 'How to Write a Professional Bio. Professional sites like LinkedIn, AngelList, or a speaker bio on an event site all have space for a bio or summary section. For each of these, you’ll probably want to write a mid-length description of both your current role, professional aspirations, and biggest achievements.'
 }
 const SingleBlog = () => {
+    const { blogId } = useParams();
+    const [blog, setBlog] = useState({});
+    // load service
+    useEffect(() => {
+        fetch(`https://quiet-sierra-31697.herokuapp.com/allBlogs/${blogId}`)
+            .then(res => res.json())
+            .then(data => setBlog(data))
+    }, [blogId]);
+    
     return (
-        <>
+        <div>
+            <Container>
           <Navigation/>
             <Container sx={{ my: '50px'}} fixed >
                 <Box sx={{ width: { xs: '90%', md: '75%', lg: '50%' }, color: '#3C3C3C', mx: 'auto',my:'10vh'}}>
                 <Box sx={{ textAlign: 'center' }}>
-                    <img style={{width:'100%'}} src={programmingBlog[0].blog_image} alt="program"/>
+                    <img style={{width:'100%'}} src={blog.blog_image} alt="program"/>
                 </Box>
                 <Box>
                     <Typography variant="h4" sx={{fontWeight:'bold'}} gutterBottom component="div">
-                        {programmingBlog[0].blog_name}
+                        {blog.blog_name}
                     </Typography>
                     <span style={{ color: '#D55857' }}>#Getting Started</span>
-                    <span style={{ color: '#D55857' }}>#{programmingBlog[0].blog_catagory}</span>
+                    <span style={{ color: '#D55857' }}>#{blog.blog_catagory}</span>
                 </Box>
                 <Box sx={{my:'20px',mb:'40px'}}>
-                        <p style={{ color:'#756A7B',fontSize:'18px'}}>{programmingBlog[0].blog_description}</p>
+                        <p style={{ color:'#756A7B',fontSize:'18px'}}>{blog.blog_description}</p>
                 </Box>
                 <Divider/>
                 <Box sx={{display:'flex',alignItems:'center',my:'15px'}}>
@@ -59,8 +69,9 @@ const SingleBlog = () => {
                 <CommentSection/>
             </Box>
           </Container> 
-          <Footer/>
-        </>
+                <Footer />
+                </Container>
+        </div>
     );
 };
 

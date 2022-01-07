@@ -8,9 +8,11 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { React, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from 'react-router-dom';
 import { fetchAllBlogs } from "../../redux/slices/blogSlice";
 import Footer from "../Shared/Footer/Footer";
 import Navigation from "../Shared/Navigation/Navigation";
+
 
 const AllBlogs = () => {
     const dispatch = useDispatch();
@@ -37,6 +39,7 @@ const AllBlogs = () => {
               key={blog._id}
               blog={blog}
               item xs={12} md={3}>
+              <Link to={`/blog/${blog._id}`} style={{textDecoration:'none'}}>
               <Card sx={{ maxWidth: 'auto' }}>
                 <CardHeader
                   avatar={
@@ -50,18 +53,19 @@ const AllBlogs = () => {
                 <CardActionArea sx={{ display: 'flex', flexDirection: 'column' }} >
                   <CardMedia
                     component="img"
-                    height="250px"
+                    height="200px"
                     image={blog.blog_image}
                     alt="Blog_image"
                   />
                   <CardContent>
                     <Typography variant="body2" color="text.secondary">
-                      {blog.blog_description.slice(0, 150)} ...
+                      {blog.blog_description.slice(0,100)} ...
                     </Typography>
                   </CardContent>
                 </CardActionArea>
                 
-              </Card>
+                </Card>
+                </Link>
             </Grid>)
           }
            

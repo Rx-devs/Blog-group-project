@@ -7,9 +7,9 @@ const PrivateRoute = ({ children, ...rest }) => {
     const { user, isLoading } = useAuth();
     let location = useLocation();
     if (isLoading) {
-        return <CircularProgress/>
+        return <CircularProgress />
     }
-    if (user.email) {
+    else if (user.email) {
         return children;
     }
     return <Navigate to="/login" state={{ from: location }} />;

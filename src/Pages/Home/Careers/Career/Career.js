@@ -1,30 +1,28 @@
-import React from 'react';
-import './Career.css';
+import { CardActionArea } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
-import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './Career.css';
 
 
 const Career = ({ Carrier }) => {
-    const { blog_catagory, blog_name, blog_description, blog_image, user_image, user_name } = Carrier;
+    const { blog_catagory, blog_name, blog_description, blog_image, user_image, user_name, _id, id } = Carrier;
 
     return (
         <>
-
-            <Box sx={{ flexGrow: 1 }}>
-                <Grid container spacing={2} direction="column"
-                    alignItems="center"
-                    justifyContent="center"
+            <Grid item xs={12} md={4}
                 >
-                    <Card sx={{ maxWidth: 345, marginTop: "30px" }}>
-                        <CardActionArea sx={{ display: "flex", flexDirection: "column" }}>
+                    <Link to={`/blog/${_id}`} style={{textDecoration:'none'}}>
+                    <Card sx={{ maxWidth:'auto'}}>
+                    
+                    <CardActionArea sx={{ display: "flex", flexDirection: "column" }}>
                             <CardMedia
                                 component="img"
-                                height="140"
+                                height="160"
                                 image={blog_image}
                                 alt="green iguana"
                             />
@@ -32,11 +30,11 @@ const Career = ({ Carrier }) => {
                                 <Typography className='tag tag-blue'>
                                     {blog_catagory}
                                 </Typography>
-                                <Typography variant="h5" color="text.secondary">
+                                <Typography style={{margin:'5px 0'}} variant="h5">
                                     {blog_name}
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary" sx={{ fontWeight: "12px" }}>
-                                    {blog_description.slice(0, 200)}
+                                    {blog_description.slice(0, 180)} ...
                                 </Typography>
                                 <div className="card__footer">
                                     <div className="user">
@@ -47,11 +45,11 @@ const Career = ({ Carrier }) => {
                                         </div>
                                     </div>
                                 </div>
-                            </CardContent>
-                        </CardActionArea>
+                        </CardContent>
+                            </CardActionArea>
                     </Card>
+                        </Link>
                 </Grid>
-            </Box >
         </>
 
     );

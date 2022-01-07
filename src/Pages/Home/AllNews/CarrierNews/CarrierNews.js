@@ -1,26 +1,29 @@
-import React from 'react';
+import { Container } from '@material-ui/core';
+import { CardActionArea } from '@mui/material';
+import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
-import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import { Container } from '@material-ui/core';
+import Typography from '@mui/material/Typography';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CarrierNewsOne = ({ carriers }) => {
-    const { blog_name, blog_description, blog_image } = carriers;
+    const { blog_name, blog_description, blog_image,_id } = carriers;
 
     return (
         <Container>
-            <Box sx={{ flexGrow: 1, }}>
+            <Box sx={{ flexGrow: 1, marginTop:'30px' }}>
                 <Grid container
                 >
-                    <Card sx={{ maxWidth: "auto", marginTop: "30px", boxShadow: "none" }}>
-                        <CardActionArea sx={{ display: "flex", flexDirection: "column" }}>
+                    <Link to={`/blog/${_id}`} style={{textDecoration:'none'}}>
+                    <Card sx={{ maxWidth: "100%", boxShadow: "none" }}>
+                            <CardActionArea>
                             <CardMedia
                                 component="img"
-                                height="240"
+                                    height="250"
+                                    style={{width:"200px"}}
                                 image={blog_image}
                                 alt="green iguana"
                             />
@@ -39,7 +42,8 @@ const CarrierNewsOne = ({ carriers }) => {
 
                             </CardContent>
                         </CardActionArea>
-                    </Card>
+                        </Card>
+                        </Link>
                 </Grid>
             </Box >
         </Container>
