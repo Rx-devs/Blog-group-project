@@ -16,11 +16,11 @@ const CarrierNewsOne = ({ carriers }) => {
             <Box sx={{ flexGrow: 1, }}>
                 <Grid container
                 >
-                    <Card sx={{ maxWidth: 345, marginTop: "30px", boxShadow: "none" }}>
+                    <Card sx={{ maxWidth: "auto", marginTop: "30px", boxShadow: "none" }}>
                         <CardActionArea sx={{ display: "flex", flexDirection: "column" }}>
                             <CardMedia
                                 component="img"
-                                height="140"
+                                height="240"
                                 image={blog_image}
                                 alt="green iguana"
                             />
@@ -30,7 +30,7 @@ const CarrierNewsOne = ({ carriers }) => {
                                     {blog_name}
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary" sx={{}}>
-                                    {blog_description}
+                                    {blog_description.slice(0, 200)}
                                 </Typography>
                                 <br />
                                 <Typography variant="body2" color="caption" sx={{}}>

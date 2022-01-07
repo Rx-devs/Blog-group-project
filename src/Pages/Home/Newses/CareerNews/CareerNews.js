@@ -10,12 +10,12 @@ const CarrierNews = () => {
     useEffect(() => {
         fetch('http://localhost:5000/carrierBlogs')
             .then(res => res.json())
-            .then(data => setcarriers(data))
+            .then(data => setcarriers(data.slice(0, 2)))
     }, []);
     useEffect(() => {
         fetch('http://localhost:5000/programmingBlogs')
             .then(res => res.json())
-            .then(data => setProgramming(data))
+            .then(data => setProgramming(data.slice(0, 2)))
     }, [])
     console.log(programmings)
     return (
@@ -23,8 +23,8 @@ const CarrierNews = () => {
             <Container >
                 <Box sx={{ flexGrow: 1 }} sx={{ display: "flex", marginBottom: "60px" }}>
                     <Grid container>
-                        <Grid item sm={12} md={4} lg={4} >
-                            <Typography variant="h5" gutterBottom component="div" sx={{ display: "inlineBlock", textAlign: "center" }}>
+                        <Grid item sm={12} md={6} lg={6} >
+                            <Typography variant="h5" gutterBottom component="div" style={{ textAlign: "center" }}>
                                 Carrier Blogs
                             </Typography>
                             {
@@ -32,7 +32,7 @@ const CarrierNews = () => {
                             }
                         </Grid>
                         <Grid item sm={12} md={6} lg={6}>
-                            <Typography variant="h5" gutterBottom component="div">
+                            <Typography variant="h5" gutterBottom component="div" style={{ textAlign: "center" }}>
                                 Programming Blogs
                             </Typography>
                             {
@@ -44,7 +44,7 @@ const CarrierNews = () => {
 
                 </Box>
             </Container>
-        </div>
+        </div >
     );
 };
 

@@ -1,22 +1,20 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
-import { NavLink } from "react-router-dom";
+import MenuIcon from '@mui/icons-material/Menu';
+import AppBar from '@mui/material/AppBar';
+import Avatar from '@mui/material/Avatar';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import * as React from 'react';
+import { NavLink } from 'react-router-dom';
 import useAuth from "../../../hooks/useAuth/useAuth";
 
 const Navigation = () => {
   const { user, logout } = useAuth();
-
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -26,27 +24,39 @@ const Navigation = () => {
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
+
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
+
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
 
+  // navlink styles
+  const customStyle = {
+    textDecoration: "none",color:"#000000", display:"block", textTransform: "capitalize",fontSize:"16px"
+  };
+  const activeStyle = {
+    ...customStyle, color:'red',
+  };
+
   return (
-    <AppBar position="static">
+    <AppBar sx={{ px: 6, py: 0, background: 'transparent', boxShadow: 'none' }} position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+          {/* Large Device Logo*/}
           <Typography
-            variant="h6"
+            variant="h5"
             noWrap
             component="div"
-            sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+            sx={{ fontWeight:"700", color: "#000000", mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            LOGO
+            Blogs
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          {/* Small Device */}
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -55,214 +65,174 @@ const Navigation = () => {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              <MenuIcon />
+              <MenuIcon sx={{ color: '#000' }} />
             </IconButton>
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
+                vertical: 'bottom',
+                horizontal: 'left',
               }}
               keepMounted
               transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
+                vertical: 'top',
+                horizontal: 'left',
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: "block", md: "none" },
+                display: { xs: 'block', md: 'none' },
               }}
             >
-              <NavLink
-                style={{ textDecoration: "none", color: "black" }}
+              <MenuItem onClick={handleCloseNavMenu}>
+                <NavLink
                 to="/home"
-              >
-                <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">Home</Typography>
-                </MenuItem>
+                style={({ isActive }) =>
+              isActive ? activeStyle : customStyle
+            }>
+                Home
               </NavLink>
-              <br></br>
-              <NavLink
-                style={{ textDecoration: "none", color: "black" }}
+              </MenuItem>
+              <MenuItem onClick={handleCloseNavMenu}>
+                <NavLink
+                to="/dashboard"
+                style={({ isActive }) =>
+              isActive ? activeStyle : customStyle
+            }>
+                Dashboard
+              </NavLink>
+              </MenuItem>
+              {/* <MenuItem onClick={handleCloseNavMenu}>
+                <NavLink
                 to="/blogs"
-              >
-                <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">Blogs</Typography>
-                </MenuItem>
-              </NavLink>
-              <br></br>
-              <NavLink
-                style={{ textDecoration: "none", color: "black" }}
-                to="/contact"
-              >
-                <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">Contact</Typography>
-                </MenuItem>
-              </NavLink>
-              <br></br>
-              <NavLink
-                style={{ textDecoration: "none", color: "black" }}
-                to="/aboutUs"
-              >
-                <MenuItem onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">About Us</Typography>
-                </MenuItem>
-              </NavLink>
-              <br></br>
-              {user.email ? (
-                <MenuItem onClick={{handleCloseNavMenu,logout}}>
-                  <Typography textAlign="center">Logout</Typography>
-                </MenuItem>
-              ) : (
-                <>
+                style={({ isActive }) =>
+              isActive ? activeStyle : customStyle
+            }>
+                Blogs
+              </NavLink> 
+              </MenuItem> */}
+              <MenuItem onClick={handleCloseNavMenu}>
+                {user.email ?
+                  <Button onClick={logout} variant="contained">logout</Button>
+                  :
                   <NavLink
-                    style={{ textDecoration: "none", color: "black" }}
-                    to="/login"
-                  >
-                    <MenuItem onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center">Login</Typography>
-                    </MenuItem>
-                  </NavLink>
-                </>
-              )}
+               to="/login"
+                style={({ isActive }) =>
+              isActive ? activeStyle : customStyle
+            }>
+                Login
+              </NavLink>
+                }
+              </MenuItem>
             </Menu>
           </Box>
+
+          {/* Small Device Logo*/}
           <Typography
-            variant="h6"
+            variant="h5"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
+            sx={{fontWeight:"700", color: "#000000", flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-            LOGO
+            Blogs
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <NavLink
-              style={{ textDecoration: "none", color: "white" }}
-              to="/home"
-            >
-              <Button
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                Home
-              </Button>
-            </NavLink>
-            <NavLink
-              style={{ textDecoration: "none", color: "white" }}
-              to="/blogs"
-            >
-              <Button
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                Blogs
-              </Button>
-            </NavLink>
-            <NavLink
-              style={{ textDecoration: "none", color: "white" }}
-              to="/contact"
-            >
-              <Button
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                Contact
-              </Button>
-            </NavLink>
-            <NavLink
-              style={{ textDecoration: "none", color: "white" }}
-              to="/aboutUs"
-            >
-              <Button
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                About Us
-              </Button>
-            </NavLink>
-            {user.email ? (
-              <NavLink style={{ textDecoration: "none", color: "white" }}>
-                <Button
-                  onClick={{handleCloseNavMenu, logout}}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  Log Out
-                </Button>
-              </NavLink>
-            ) : (
-              <NavLink
-                style={{ textDecoration: "none", color: "white" }}
-                to="/login"
-              >
-                <Button
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  Login
-                </Button>
-              </NavLink>
-            )}
-          </Box>
 
-          {user.email && (
-            <>
-              <Typography>{user.displayName}</Typography>
-              <Box sx={{ flexGrow: 0 }}>
-                <Tooltip title="Open settings">
-                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar
-                      alt="Remy Sharp"
-                      src="/static/images/avatar/2.jpg"
-                    />
-                  </IconButton>
-                </Tooltip>
-                <Menu
-                  sx={{ mt: "45px" }}
-                  id="menu-appbar"
-                  anchorEl={anchorElUser}
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  open={Boolean(anchorElUser)}
-                  onClose={handleCloseUserMenu}
-                >
-                  <MenuItem onClick={handleCloseNavMenu}>
-                    <NavLink
-                      style={{ textDecoration: "none", color: "black" }}
-                      to="/home"
-                    >
-                      <Typography textAlign="center">Home</Typography>
-                    </NavLink>
-                  </MenuItem>
-                  <br></br>
-                  <MenuItem onClick={handleCloseNavMenu}>
-                    <NavLink
-                      style={{ textDecoration: "none", color: "black" }}
-                      to="/dashboard"
-                    >
-                      <Typography textAlign="center">Dashboard</Typography>
-                    </NavLink>
-                  </MenuItem>
-                  <br></br>
-                  <MenuItem onClick={{handleCloseNavMenu, logout}}>
-                    <Typography textAlign="center">Logout</Typography>
-                  </MenuItem>
-                </Menu>
-              </Box>
-            </>
-          )}
+          {/* Large Device */}
+          <Box onClick={handleCloseNavMenu} sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            <Button>
+              <NavLink
+                to="/home"
+                style={({ isActive }) =>
+              isActive ? activeStyle : customStyle
+            }>
+                Home
+              </NavLink>
+            </Button>
+            <Button>
+              <NavLink
+                to="/register"
+                style={({ isActive }) =>
+              isActive ? activeStyle : customStyle
+            }>
+                Register
+              </NavLink>
+            </Button>
+            <Button>
+              <NavLink
+                to="/dashboard"
+                style={({ isActive }) =>
+              isActive ? activeStyle : customStyle
+            }>
+                Dashboard
+              </NavLink>
+            </Button>
+            <Button>
+              <NavLink
+                to="/allBlogs"
+                style={({ isActive }) =>
+              isActive ? activeStyle : customStyle
+            }>
+                Blogs
+              </NavLink>
+            </Button>
+            {user.email ?
+              <Button onClick={logout} variant="contained">logout</Button>
+              :
+              <Button>
+              <NavLink
+               to="/login"
+                style={({ isActive }) =>
+              isActive ? activeStyle : customStyle
+            }>
+                Login
+              </NavLink>
+            </Button>
+            }
+          </Box>
+			
+          <Box sx={{ flexGrow: 0, display:'flex', alignItems:'center' }}>
+			  {user.email && <Typography
+			  sx={{color:'#000000', mx:3}}
+            variant="subtitle1"
+          >
+		  Hi, {user?.displayName}
+			  </Typography>}
+		  <Avatar alt="Remy Sharp" src={user?.photoURL} />
+		  {/*
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {settings.map((setting) => (
+                <MenuItem key={setting} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{setting}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+			*/}
+          </Box>
+		  
         </Toolbar>
       </Container>
     </AppBar>
   );
 };
-
 export default Navigation;

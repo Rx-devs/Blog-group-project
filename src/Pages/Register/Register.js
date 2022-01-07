@@ -1,19 +1,14 @@
-import React, { useState } from "react";
 import {
-  Grid,
-  Paper,
-  Avatar,
-  TextField,
-  Button,
-  Typography,
-  CircularProgress,
+  Avatar, Button, CircularProgress, Grid,
+  Paper, TextField, Typography
 } from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import { NavLink, useNavigate } from "react-router-dom";
-import Navigation from "../Shared/Navigation/Navigation";
-import Footer from "../Shared/Footer/Footer";
-import useAuth from "../../hooks/useAuth/useAuth";
 import { Alert } from "@mui/material";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth/useAuth";
+import Footer from "../Shared/Footer/Footer";
+import Navigation from "../Shared/Navigation/Navigation";
 
 const Register = () => {
   const [loginData, setLoginData] = useState({});
@@ -106,9 +101,9 @@ const Register = () => {
               <Typography>
                 {" "}
                 Are you already registered?
-                <NavLink style={{ textDecoration: "none" }} to="/login">
+                <Link style={{ textDecoration: "none" }} to="/login">
                   Sign In
-                </NavLink>
+                </Link>
               </Typography>
             </form>
           )}

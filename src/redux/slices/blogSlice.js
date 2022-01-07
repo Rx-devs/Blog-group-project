@@ -1,17 +1,36 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
+export const fetchAllBlogs = createAsyncThunk(
+    'blog/fetchAllBlogs',
+    async () => {
+        const response = await fetch('https://quiet-sierra-31697.herokuapp.com/allBlogs')
+            .then(res => res.json())
+        return response
+    })
+export const fetchProgrammingBlogs = createAsyncThunk(
+    'blog/fetchProgrammingBlogs',
+    async () => {
+        const response = await fetch('https://quiet-sierra-31697.herokuapp.com/programmingBlogs')
+            .then(res => res.json())
+        return response
+    })
 
 const blogSlice = createSlice({
     name: 'blog',
     initialState: {
         programmingBlogs: [],
         carrierBlogs: [],
+        allBlogs:[]
     },
 
     reducers: {
-        addDataToProgrammingBlogs: (state, { payload }) => {
-            state.programmingBlogs.push(payload);
+        addToAllBlogs: (state, { payload }) => {
+            state.allBlogs.push(payload)
         },
+        addToProgrammingBlogs: (state, { payload }) => {
+            state.programmingBlogs.push(payload)
+        },
+        /* 
         addDataToCarrierBlogs: (state, { payload }) => {
             state.carrierBlogs.push(payload);
         },
@@ -20,7 +39,7 @@ const blogSlice = createSlice({
         },
         removeDataFromProgrammingBlogs: (state, { payload }) => {
             state.carrierBlogs = state.carrierBlogs.filter(blog => blog.id !== payload.id);
-        },
+        }, */
         // Use the PayloadAction type to declare the contents of `action.payload`
 
         /* incrementByAmount: (state, action) => {
@@ -39,9 +58,21 @@ const blogSlice = createSlice({
                 state.value += action.payload;
             });
     }, */
+
+    extraReducers: (builder) => {
+        // Add reducers for additional action types here, and handle loading state as needed
+        builder.addCase(fetchAllBlogs.fulfilled, (state, action) => {
+          // Add user to the state array
+          state.allBlogs = action.payload;
+        })
+        builder.addCase(fetchProgrammingBlogs.fulfilled, (state, action) => {
+          // Add user to the state array
+          state.programmingBlogs = action.payload;
+        })
+      }
     
 });
 
-export const { addDataToProgrammingBlogs, addDataToCarrierBlogs, removeDataFromCarrierBlogs, removeDataFromProgrammingBlogs } = blogSlice.actions;
+export const { addToAllBlogs, addToProgrammingBlogs} = blogSlice.actions;
 
 export default blogSlice.reducer;
