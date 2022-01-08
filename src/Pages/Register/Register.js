@@ -39,7 +39,7 @@ const Register = () => {
   };
   const avatarStyle = { backgroundColor: "#ff3e30" };
   const btnstyle = { margin: "10px 0", padding: '12px 0', backgroundColor: "#ff3e30", color: '#ffffff' };
-
+  
   return (
     <>
       <Navigation></Navigation>
@@ -89,7 +89,6 @@ const Register = () => {
                 required
               />
               <Button
-                style={{ marginBottom: '10px' }}
                 type="submit"
                 color="primary"
                 variant="contained"

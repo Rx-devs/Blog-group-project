@@ -19,10 +19,10 @@ const Footer = () => {
                         <Grid item xs={12} md={3} >
                             <Box>
                                 <Typography variant='h6' style={{ marginBottom: '5px' }}>
-                                    Newsfeed
+                                    <span style={{color:'#ff3e30'}}>DEV</span>Blogs
                                 </Typography>
                                 <Typography>
-                                    Newsfeed is well optimized template for any kinds of newspaper, blog, magazine etc website
+                                    DEVBlogs is well optimized template for any kinds of blog, magazine etc websites.
                                 </Typography>
                             </Box>
                         </Grid>
@@ -34,7 +34,7 @@ const Footer = () => {
                                 </Typography>
                                 <Box>
                                     <Box>
-                                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/home">
+                                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/">
                                             <Button variant="button"
                                                 sx={{ my: 2, color: 'white', display: 'block' }}
                                             >
@@ -44,7 +44,16 @@ const Footer = () => {
                                         </Link>
                                     </Box>
                                     <Box>
-                                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/blogs">
+                                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/login">
+                                            <Button variant="button"
+                                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                            >
+                                                Login
+                                            </Button>
+                                        </Link>
+                                    </Box>
+                                    <Box>
+                                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/allblogs">
                                             <Button variant="button"
                                                 sx={{ my: 2, color: 'white', display: 'block' }}
                                             >
@@ -52,12 +61,12 @@ const Footer = () => {
                                             </Button>
                                         </Link>
                                     </Box>
-                                    <Box>
-                                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/login">
+				    <Box>
+                                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/aboutUs">
                                             <Button variant="button"
                                                 sx={{ my: 2, color: 'white', display: 'block' }}
                                             >
-                                                Login
+                                                About Us
                                             </Button>
                                         </Link>
                                     </Box>
@@ -125,7 +134,7 @@ const Footer = () => {
                         </Grid>
                     </Grid>
                 </Container>
-                <Box sx={{ color: 'text.secondary', color: '#ffffff', backgroundColor: '#ff3e30', p: 2 }} textAlign="center">
+                <Box sx={{color: '#ffffff', backgroundColor: '#ff3e30', p: 2 }} textAlign="center">
                     © 2022 Newsfeed - Developed with by Team-33
                 </Box>
             </Box>

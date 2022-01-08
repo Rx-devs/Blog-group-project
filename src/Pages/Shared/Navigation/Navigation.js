@@ -42,18 +42,16 @@ const Navigation = () => {
   };
 
   return (
-    <AppBar sx={{ px: 6, py: 0, background: 'transparent', boxShadow: 'none' }} position="static">
+    <AppBar sx={{ px: 6, py: 0, background: 'transparent'}} position="static">
       <Container>
         <Toolbar disableGutters>
           {/* Large Device Logo*/}
           <Typography
-            variant="h4"
-            noWrap
             component="div"
-            sx={{ color: "#ff3e30", display: { xs: 'none', md: 'flex' } }}
-            style={{marginRight:'20px'}}
-          >
-            BlogsFeed
+            sx={{ color: "#000000", display: { xs: 'none', md: 'flex' } }}
+            style={{marginRight:'20px', fontWeight:'500', fontSize:'34px'}}
+          > 
+           <span style={{color:'#ff3e30'}}>DEV</span>Blogs
           </Typography>
 
           {/* Small Device */}
@@ -145,9 +143,10 @@ const Navigation = () => {
             variant="h5"
             noWrap
             component="div"
-            sx={{ color: "#ff3e30", flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+            sx={{ color:'#000000', flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+            style={{fontWeight:'500', fontSize:'30px'}}
           >
-            BlogsFeed
+            <span style={{color:'#ff3e30'}}>DEV</span>Blogs
           </Typography>
 
           {/* Large Device */}
