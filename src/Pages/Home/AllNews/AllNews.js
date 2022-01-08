@@ -19,12 +19,12 @@ const AllNews = () => {
     }, [dispatch]);
     
     return (
-        <div style={{padding:'100px 0'}}>
+        <div style={{ padding: '100px 0' }}>
             <Container>
                 <Box sx={{ flexGrow: 1 }}>
                     <Typography variant="h4" gutterBottom component="div" style={{ textAlign: "center" }}>
-                                Our Latest Blogs
-                            </Typography>
+                        Our Latest Blogs
+                    </Typography>
                     <Grid container>
                         <Grid item sm={12} md={6} lg={6} >
                             {/* <Typography variant="h5" gutterBottom component="div" style={{ textAlign: "center" }}>

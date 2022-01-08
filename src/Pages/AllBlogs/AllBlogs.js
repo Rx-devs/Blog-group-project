@@ -39,33 +39,33 @@ const AllBlogs = () => {
               key={blog._id}
               blog={blog}
               item xs={12} md={3}>
-              <Link to={`/blog/${blog._id}`} style={{textDecoration:'none'}}>
-              <Card sx={{ maxWidth: 'auto' }}>
-                <CardHeader
-                  avatar={
-                    <Avatar aria-label="recipe">
-                      {blog.user_image}
-                    </Avatar>
-                  }
-                  title={blog.user_name}
-                  subheader="September 14, 2016"
-                />
-                <CardActionArea sx={{ display: 'flex', flexDirection: 'column' }} >
-                  <CardMedia
-                    component="img"
-                    height="200px"
-                    image={blog.blog_image}
-                    alt="Blog_image"
+              <Link to={`/blog/${blog._id}`} style={{ textDecoration: 'none' }}>
+                <Card sx={{ maxWidth: 'auto' }}>
+                  <CardHeader
+                    avatar={
+                      <Avatar aria-label="recipe">
+                        {blog.user_image}
+                      </Avatar>
+                    }
+                    title={blog.user_name}
+                    subheader="September 14, 2016"
                   />
-                  <CardContent>
-                    <Typography variant="body2" color="text.secondary">
-                      {blog.blog_description.slice(0,100)} ...
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
+                  <CardActionArea sx={{ display: 'flex', flexDirection: 'column' }} >
+                    <CardMedia
+                      component="img"
+                      height="200px"
+                      image={blog.blog_image}
+                      alt="Blog_image"
+                    />
+                    <CardContent>
+                      <Typography variant="body2" color="text.secondary">
+                        {blog.blog_description.slice(0, 100)} ...
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
                 
                 </Card>
-                </Link>
+              </Link>
             </Grid>)
           }
            

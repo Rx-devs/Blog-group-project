@@ -14,7 +14,7 @@ import Navigation from "../../Shared/Navigation/Navigation";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({});
-  const { user, loginUser, signInWithGoogle, authError,isLoading } = useAuth();
+  const { user, logInUser, signInWithGoogle, authError, isLoading } = useAuth();
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -27,7 +27,7 @@ const Login = () => {
     setLoginData(newLoginData);
   };
   const handleLoginSubmit = (e) => {
-    loginUser(loginData.email, loginData.password, location, navigate);
+    logInUser(loginData.email, loginData.password, location, navigate);
     e.preventDefault();
   };
   const handleGoogleSignIn = () => {
@@ -39,7 +39,7 @@ const Login = () => {
     margin: "20px auto",
   };
   const avatarStyle = { backgroundColor: "#ff3e30" };
-  const btnstyle = { margin: "10px 0", padding:'12px 0', backgroundColor:"#ff3e30",color:'#ffffff' };
+  const btnstyle = { margin: "10px 0", padding: '12px 0', backgroundColor: "#ff3e30", color: '#ffffff' };
   return (
     <div>
       <Navigation></Navigation>
@@ -53,18 +53,16 @@ const Login = () => {
           </Grid>
           <form onSubmit={handleLoginSubmit}>
             <TextField
-              style={{marginBottom:'10px'}}
+              style={{ marginBottom: '10px' }}
               label="Email"
-              placeholder="Enter Email"
               name="email"
               onBlur={handleOnBlur}
               fullWidth
               required
             />
             <TextField
-              style={{marginBottom:'10px'}}
+              style={{ marginBottom: '10px' }}
               label="Password"
-              placeholder="Enter password"
               type="password"
               fullWidth
               required
@@ -78,12 +76,14 @@ const Login = () => {
             >
               Sign in
             </Button>
-            <GoogleButton onClick={handleGoogleSignIn} style={{width:'100%', marginBottom:'16px'}}/>
+            
+          </form>
+          <GoogleButton onClick={handleGoogleSignIn} style={{ width: '100%', marginBottom: '16px' }} />
             <Typography>
               {" "}
-              Do you have an account? .. 
-              <Link style={{ textDecoration: "none", color:'#ff3e30', fontWeight:'600'}} to="/register">
-                 Sign Up Now
+              Do you have an account? ..
+              <Link style={{ textDecoration: "none", color: '#ff3e30', fontWeight: '600' }} to="/register">
+                Sign Up Now
               </Link>
             </Typography>
             {isLoading && <CircularProgress />}
@@ -91,7 +91,6 @@ const Login = () => {
               <Alert severity="success">Login successfully!</Alert>
             )}
             {authError && <Alert severity="error">{authError}</Alert>}
-          </form>
         </Paper>
       </Grid>
       <Footer></Footer>

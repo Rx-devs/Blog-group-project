@@ -23,24 +23,24 @@ const CommentSection = () => {
             <div>
                 {
                     comments.map((m, i) => (
-                        <Box sx={{display:'flex',my:'20px'}} key={i}>
-                            <div><img style={{width:'50px'}} src={m.image} alt="comments" /></div>
+                        <Box sx={{ display: 'flex', my: '20px' }} key={i}>
+                            <div><img style={{ width: '50px' }} src={m.image} alt="comments" /></div>
                             <div >
                                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                                    <h4 style={{margin:'5px'}}>{m?.name}</h4>
-                                    <small style={{ color:'#756A7B'}}>{m.date}</small>
+                                    <h4 style={{ margin: '5px' }}>{m?.name}</h4>
+                                    <small style={{ color: '#756A7B' }}>{m.date}</small>
                                 </Box>
-                                <p style={{ margin: '5px', color:'#756A7B'}}>{m.comment}</p>
+                                <p style={{ margin: '5px' }}>{m.comment}</p>
                             </div>
                         </Box>
-                    )) 
+                    ))
                 }
             </div>
             <div>
                 <h2>Post a Comment</h2>
                 <form>
-                    <textarea required style={{width:'300px',height:'10vh'}}></textarea><br/>
-                    <Button variant='contained' style={{ border: '1px solid #3C3C3C' }}>Add Coment</Button>
+                    <textarea required style={{ width: '300px', height: '10vh', resize: 'none' }}></textarea><br />
+                    <Button variant='contained' style={{ backgroundColor: '#FF3E30', color: '#ffffff' }}>Add Coment</Button>
                 </form>
             </div>
         </div>

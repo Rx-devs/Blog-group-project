@@ -14,22 +14,21 @@ import PostBlog from "./Pages/Dashboard/User/PostBlog/PostBlog";
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Login/Login/Login";
 import Register from "./Pages/Register/Register";
-
-// import ScrollToTop from "./Pages/ScrollToTop/ScrollToTop";
+import ScrollToTop from "./Pages/ScrollToTop/ScrollToTop";
 
 function App() {
   return (
     <div>
       <AuthProvider>
         <Router>
-          {/* <ScrollToTop> */}
+          <ScrollToTop>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/aboutUs" element={<About />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/allBlogs" element={<AllBlogs />} />
+            <Route path="/allBlogs" element={<PrivateRoute> <AllBlogs/> </PrivateRoute>} />
             <Route path="/blog/:blogId" element={<SingleBlog />} />
             <Route path="/dashboard" element={<PrivateRoute> <Dashboard /> </PrivateRoute>}>
               <Route path={`/dashboard/postBlog`} element={<PostBlog></PostBlog>}>
@@ -39,9 +38,8 @@ function App() {
               <Route path={`/dashboard/manageBlogs`} element={<AdminRoute> <ManageBlogs /> </AdminRoute>}>
               </Route>
             </Route>
-            
           </Routes>
-          {/* </ScrollToTop> */}
+          </ScrollToTop>
         </Router>
       </AuthProvider>
     </div>

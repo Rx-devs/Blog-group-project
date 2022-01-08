@@ -10,40 +10,40 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CarrierNewsOne = ({ carriers }) => {
-    const { blog_name, blog_description, blog_image,_id } = carriers;
+    const { blog_name, blog_description, blog_image, _id } = carriers;
 
     return (
         <Container>
-            <Box sx={{ flexGrow: 1, marginTop:'30px' }}>
+            <Box sx={{ flexGrow: 1, marginTop: '30px' }}>
                 <Grid container
                 >
-                    <Link to={`/blog/${_id}`} style={{textDecoration:'none'}}>
-                    <Card sx={{ maxWidth: "100%", boxShadow: "none" }}>
+                    <Link to={`/blog/${_id}`} style={{ textDecoration: 'none' }}>
+                        <Card sx={{ maxWidth: "100%", boxShadow: "none" }}>
                             <CardActionArea>
-                            <CardMedia
-                                component="img"
+                                <CardMedia
+                                    component="img"
                                     height="250"
-                                    style={{width:"200px"}}
-                                image={blog_image}
-                                alt="green iguana"
-                            />
-                            <CardContent>
+                                    style={{ width: "200px" }}
+                                    image={blog_image}
+                                    alt="green iguana"
+                                />
+                                <CardContent>
 
-                                <Typography variant="h5" color="text.secondary">
-                                    {blog_name}
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary" sx={{}}>
-                                    {blog_description.slice(0, 200)}
-                                </Typography>
-                                <br />
-                                <Typography variant="body2" color="caption" sx={{}}>
-                                    2 min ago
-                                </Typography>
+                                    <Typography variant="h5" color="text.secondary">
+                                        {blog_name}
+                                    </Typography>
+                                    <Typography variant="body2" color="text.secondary" sx={{}}>
+                                        {blog_description.slice(0, 200)}
+                                    </Typography>
+                                    <br />
+                                    <Typography variant="body2" color="caption" sx={{}}>
+                                        2 min ago
+                                    </Typography>
 
-                            </CardContent>
-                        </CardActionArea>
+                                </CardContent>
+                            </CardActionArea>
                         </Card>
-                        </Link>
+                    </Link>
                 </Grid>
             </Box >
         </Container>

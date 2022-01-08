@@ -14,12 +14,11 @@ const Career = ({ Carrier }) => {
 
     return (
         <>
-            <Grid item xs={12} md={4}
-                >
-                    <Link to={`/blog/${_id}`} style={{textDecoration:'none'}}>
-                    <Card sx={{ maxWidth:'auto'}}>
+            <Grid item xs={12} md={4}>
+                <Link to={`/blog/${_id}`} style={{ textDecoration: 'none' }}>
+                    <Card sx={{ maxWidth: 'auto' }}>
                     
-                    <CardActionArea sx={{ display: "flex", flexDirection: "column" }}>
+                        <CardActionArea sx={{ display: "flex", flexDirection: "column" }}>
                             <CardMedia
                                 component="img"
                                 height="160"
@@ -30,7 +29,7 @@ const Career = ({ Carrier }) => {
                                 <Typography className='tag tag-blue'>
                                     {blog_catagory}
                                 </Typography>
-                                <Typography style={{margin:'5px 0'}} variant="h5">
+                                <Typography style={{ margin: '5px 0' }} variant="h5">
                                     {blog_name}
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary" sx={{ fontWeight: "12px" }}>
@@ -45,11 +44,11 @@ const Career = ({ Carrier }) => {
                                         </div>
                                     </div>
                                 </div>
-                        </CardContent>
-                            </CardActionArea>
+                            </CardContent>
+                        </CardActionArea>
                     </Card>
-                        </Link>
-                </Grid>
+                </Link>
+            </Grid>
         </>
 
     );

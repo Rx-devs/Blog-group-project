@@ -101,7 +101,7 @@ function Dashboard(props) {
                         edge="start"
                         onClick={handleDrawerToggle}
                     >
-                        <MenuIcon sx={{ mr: 4, display: { sm: 'block', md:'none' } }} />
+                        <MenuIcon sx={{ mr: 4, display: { sm: 'block', md: 'none' } }} />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
                         Dashboard
@@ -145,15 +145,15 @@ function Dashboard(props) {
                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Toolbar />
-				<Box sx={{p:5}} >
-					<Typography variant="h4" gutterBottom component="div">
-						Welcome to Your Dashboard
-					  </Typography>
-					<Typography variant="h5" gutterBottom component="div">
-						{ user.displayName }
-					  </Typography>
-				</Box>
-                    <Outlet/>
+                <Box sx={{ p: 5 }} >
+                    <Typography variant="h4" gutterBottom component="div">
+                        Welcome to Your Dashboard
+                    </Typography>
+                    <Typography variant="h5" gutterBottom component="div">
+                        {user.displayName}
+                    </Typography>
+                </Box>
+                <Outlet />
             </Box>
         </Box>
     );

@@ -35,22 +35,23 @@ const Navigation = () => {
 
   // navlink styles
   const customStyle = {
-    textDecoration: "none",color:"#000000", display:"block", textTransform: "capitalize",fontSize:"16px"
+    textDecoration: "none", color: "#000000", display: "block", textTransform: "capitalize", fontSize: "16px"
   };
   const activeStyle = {
-    ...customStyle, color:'red',
+    ...customStyle, color: 'red',
   };
 
   return (
     <AppBar sx={{ px: 6, py: 0, background: 'transparent', boxShadow: 'none' }} position="static">
-      <Container maxWidth="xl">
+      <Container>
         <Toolbar disableGutters>
           {/* Large Device Logo*/}
           <Typography
             variant="h4"
             noWrap
             component="div"
-            sx={{ color: "#ff3e30", mr: 2, display: { xs: 'none', md: 'flex' } }}
+            sx={{ color: "#ff3e30", display: { xs: 'none', md: 'flex' } }}
+            style={{marginRight:'20px'}}
           >
             BlogsFeed
           </Typography>
@@ -85,46 +86,57 @@ const Navigation = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              <MenuItem onClick={handleCloseNavMenu}>
-                <NavLink
-                to="/home"
-                style={({ isActive }) =>
-              isActive ? activeStyle : customStyle
-            }>
-                Home
-              </NavLink>
-              </MenuItem>
-              <MenuItem onClick={handleCloseNavMenu}>
-                <NavLink
-                to="/dashboard"
-                style={({ isActive }) =>
-              isActive ? activeStyle : customStyle
-            }>
-                Dashboard
-              </NavLink>
-              </MenuItem>
-              <MenuItem onClick={handleCloseNavMenu}>
-                <NavLink
-                to="/allBlogs"
-                style={({ isActive }) =>
-              isActive ? activeStyle : customStyle
-            }>
-                Blogs
-              </NavLink> 
-              </MenuItem>
-              <MenuItem onClick={handleCloseNavMenu}>
-                {user.email ?
-                  <Button variant="text" style={{textTransform: 'capitalize', color:'#ff3e30', fontSize:'16px'}} onClick={logout}>logout</Button>
-                  :
+              <Box style={{ display: 'flex', flexDirection: 'column', width: '160px' }}>
+                <MenuItem onClick={handleCloseNavMenu}>
                   <NavLink
-               to="/login"
-                style={({ isActive }) =>
-              isActive ? activeStyle : customStyle
-            }>
-                Login
-              </NavLink>
-                }
-              </MenuItem>
+                    to="/home"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : customStyle
+                    }>
+                    Home
+                  </NavLink>
+                </MenuItem>
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <NavLink
+                    to="/dashboard"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : customStyle
+                    }>
+                    Dashboard
+                  </NavLink>
+                </MenuItem>
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <NavLink
+                    to="/allBlogs"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : customStyle
+                    }>
+                    Blogs
+                  </NavLink>
+                </MenuItem>
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <NavLink
+                    to="/aboutUs"
+                    style={({ isActive }) =>
+                      isActive ? activeStyle : customStyle
+                    }>
+                    About Us
+                  </NavLink>
+                </MenuItem>
+                <MenuItem onClick={handleCloseNavMenu}>
+                  {user.email ?
+                    <Button variant="text" style={{ textTransform: 'capitalize', color: '#ff3e30', fontSize: '16px' }} onClick={logout}>logout</Button>
+                    :
+                    <NavLink
+                      to="/login"
+                      style={({ isActive }) =>
+                        isActive ? activeStyle : customStyle
+                      }>
+                      Login
+                    </NavLink>
+                  }
+                </MenuItem>
+              </Box>
             </Menu>
           </Box>
 
@@ -133,37 +145,28 @@ const Navigation = () => {
             variant="h5"
             noWrap
             component="div"
-            sx={{color: "#ff3e30", flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+            sx={{ color: "#ff3e30", flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
             BlogsFeed
           </Typography>
 
           {/* Large Device */}
-          <Box onClick={handleCloseNavMenu} sx={{ mx:'auto', display: { xs: 'none', md: 'flex' } }}>
+          <Box onClick={handleCloseNavMenu} sx={{ ms: 'auto',flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <Button>
               <NavLink
                 to="/home"
                 style={({ isActive }) =>
-              isActive ? activeStyle : customStyle
-            }>
+                  isActive ? activeStyle : customStyle
+                }>
                 Home
-              </NavLink>
-            </Button>
-            <Button>
-              <NavLink
-                to="/register"
-                style={({ isActive }) =>
-              isActive ? activeStyle : customStyle
-            }>
-                Register
               </NavLink>
             </Button>
             <Button>
               <NavLink
                 to="/dashboard"
                 style={({ isActive }) =>
-              isActive ? activeStyle : customStyle
-            }>
+                  isActive ? activeStyle : customStyle
+                }>
                 Dashboard
               </NavLink>
             </Button>
@@ -171,64 +174,44 @@ const Navigation = () => {
               <NavLink
                 to="/allBlogs"
                 style={({ isActive }) =>
-              isActive ? activeStyle : customStyle
-            }>
+                  isActive ? activeStyle : customStyle
+                }>
                 Blogs
               </NavLink>
             </Button>
-            {user.email ?
-              <Button variant="text" style={{textTransform: 'capitalize', color:'#ff3e30', fontSize:'16px'}} onClick={logout}>logout</Button>
-              :
-              <Button>
+            <Button>
               <NavLink
-               to="/login"
+                to="/aboutUs"
                 style={({ isActive }) =>
-              isActive ? activeStyle : customStyle
-            }>
-                Login
+                  isActive ? activeStyle : customStyle
+                }>
+                About Us
               </NavLink>
             </Button>
+            {user.email ?
+              <Button variant="text" style={{ textTransform: 'capitalize', color: '#ff3e30', fontSize: '16px' }} onClick={logout}>logout</Button>
+              :
+              <Button>
+                <NavLink
+                  to="/login"
+                  style={({ isActive }) =>
+                    isActive ? activeStyle : customStyle
+                  }>
+                  Login
+                </NavLink>
+              </Button>
             }
           </Box>
 			
-          <Box sx={{ flexGrow: 0, display:'flex', alignItems:'center' }}>
-			  {user.email && <Typography
-              sx={{ color: '#000000', display: 'inline-block' }}
-              style={{marginRight:'10px'}}
-            variant="subtitle1"
-          >
-		  Hi,{user?.displayName}
-			  </Typography>}
-		  <Avatar alt="Remy Sharp" src={user?.photoURL} />
-		  {/*
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
+          <Box sx={{ flexGrow: 0, display: 'flex', alignItems: 'center' }}>
+            {user.email && <Typography
+              sx={{ color: '#000000', display: { xs: 'none', md: 'inline-block' } }}
+              style={{ marginRight: '10px' }}
+              variant="subtitle1"
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-			*/}
+              Hi,{user?.displayName}
+            </Typography>}
+            <Avatar alt="Remy Sharp" src={user?.photoURL} />
           </Box>
 		  
         </Toolbar>

@@ -13,12 +13,12 @@ const Footer = () => {
     return (
         <div>
             <Box elevation={10}>
-                <Container maxWidth="lg">
+                <Container maxWidth="lg" style={{ paddingBottom: '10px' }}>
                     <hr />
                     <Grid container spacing={5}>
-                        <Grid item xs={12} sm={3} >
-                            <Box >
-                                <Typography variant='h6'>
+                        <Grid item xs={12} md={3} >
+                            <Box>
+                                <Typography variant='h6' style={{ marginBottom: '5px' }}>
                                     Newsfeed
                                 </Typography>
                                 <Typography>
@@ -27,7 +27,7 @@ const Footer = () => {
                             </Box>
                         </Grid>
                         {/* Navigation */}
-                        <Grid item xs={12} sm={3} >
+                        <Grid item xs={12} md={3} >
                             <Box>
                                 <Typography variant='h6'>
                                     Navigation
@@ -35,7 +35,7 @@ const Footer = () => {
                                 <Box>
                                     <Box>
                                         <Link style={{ textDecoration: 'none', color: 'white' }} to="/home">
-                                            <Button
+                                            <Button variant="button"
                                                 sx={{ my: 2, color: 'white', display: 'block' }}
                                             >
                                                 Home
@@ -45,7 +45,7 @@ const Footer = () => {
                                     </Box>
                                     <Box>
                                         <Link style={{ textDecoration: 'none', color: 'white' }} to="/blogs">
-                                            <Button
+                                            <Button variant="button"
                                                 sx={{ my: 2, color: 'white', display: 'block' }}
                                             >
                                                 Blogs
@@ -53,26 +53,8 @@ const Footer = () => {
                                         </Link>
                                     </Box>
                                     <Box>
-                                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/contact">
-                                            <Button
-                                                sx={{ my: 2, color: 'white', display: 'block' }}
-                                            >
-                                                Contact
-                                            </Button>
-                                        </Link>
-                                    </Box>
-                                    <Box>
-                                        <Link style={{ textDecoration: 'none', color: 'white' }} to="/aboutUs">
-                                            <Button
-                                                sx={{ my: 2, color: 'white', display: 'block' }}
-                                            >
-                                                About Us
-                                            </Button>
-                                        </Link>
-                                    </Box>
-                                    <Box>
                                         <Link style={{ textDecoration: 'none', color: 'white' }} to="/login">
-                                            <Button
+                                            <Button variant="button"
                                                 sx={{ my: 2, color: 'white', display: 'block' }}
                                             >
                                                 Login
@@ -83,41 +65,69 @@ const Footer = () => {
                             </Box>
                         </Grid>
                         {/* Social Links */}
-                        <Grid item xs={12} sm={3} >
+                        <Grid item xs={12} md={3} >
                             <Box>
-                                <Typography variant='h6'>
+                                <Typography variant='h6' style={{ marginBottom: '5px' }}>
                                     Social Links
                                 </Typography>
                             </Box>
-                            <Box>
-                                <FacebookIcon />Facebook
+                            <Box sx={{ display: 'flex', alignItems: 'center', mb: 1, columnGap: '5px' }}>
+                                <FacebookIcon />
+                                <Typography style={{ fontSize: '14px', fontWeight: '500' }}>
+                                    Facebook
+                                </Typography>
                             </Box>
-                            <Box>
-                                <TwitterIcon />Twitter
+                            <Box sx={{ display: 'flex', alignItems: 'center', mb: 1, columnGap: '5px' }}>
+                                <TwitterIcon />
+                                <Typography style={{ fontSize: '14px', fontWeight: '500' }}>
+                                    Twitter
+                                </Typography>
                             </Box>
-                            <Box>
-                                <InstagramIcon />Instagram
+                            <Box sx={{ display: 'flex', alignItems: 'center', mb: 1, columnGap: '5px' }}>
+                                <InstagramIcon />
+                                <Typography style={{ fontSize: '14px', fontWeight: '500' }}>
+                                    Instagram
+                                </Typography>
                             </Box>
-                            <Box>
-                                <LinkedInIcon />LinkedIn
+                            <Box sx={{ display: 'flex', alignItems: 'center', mb: 1, columnGap: '5px' }}>
+                                <LinkedInIcon />
+                                <Typography style={{ fontSize: '14px', fontWeight: '500' }}>
+                                    LinkedIn
+                                </Typography>
                             </Box>
                         </Grid>
+
                         {/* Contact Info */}
-                        <Grid item xs={12} sm={3} >
+                        <Grid item xs={12} md={3} >
                             <Box>
                                 <Typography variant='h6'>
                                     Contact Info
                                 </Typography>
-                                <Box><HomeIcon />New S. Sales Road, Toronto, CA</Box>
-                                <Box><EmailIcon />web@newsfeed.com</Box>
-                                <Box><LocalPhoneIcon />+1 (123) 123 123</Box>
+                                <Box sx={{ display: 'flex', alignItems: 'center', mb: 1, columnGap: '5px' }}>
+                                    <HomeIcon />
+                                    <Typography variant="subtitle1">
+                                        New S. Sales Road, Toronto, CA
+                                    </Typography>
+                                </Box >
+                                <Box sx={{ display: 'flex', alignItems: 'center', mb: 1, columnGap: '5px' }}>
+                                    <EmailIcon />
+                                    <Typography variant="subtitle1">
+                                        web@newsfeed.com
+                                    </Typography>
+                                </Box>
+                                <Box sx={{ display: 'flex', alignItems: 'center', mb: 1, columnGap: '5px' }}>
+                                    <LocalPhoneIcon />
+                                    <Typography variant="subtitle1">
+                                        +1 (123) 123 123
+                                    </Typography>
+                                </Box>
                             </Box>
                         </Grid>
                     </Grid>
                 </Container>
-                <Box sx={{ color: 'text.secondary', color:'#ffffff', backgroundColor:'#ff3e30', p:2 }} textAlign="center">
-                        © 2022 Newsfeed - Developed with by Team-33
-                    </Box>
+                <Box sx={{ color: 'text.secondary', color: '#ffffff', backgroundColor: '#ff3e30', p: 2 }} textAlign="center">
+                    © 2022 Newsfeed - Developed with by Team-33
+                </Box>
             </Box>
         </div >
     );

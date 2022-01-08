@@ -18,8 +18,8 @@ const useFirebase = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((user) => {
                 // registration successfull.
+                
                 setAuthError('');
-
                 // change displayName
                 const newUser = { email, displayName: name };
                 setUser(newUser);
@@ -49,9 +49,9 @@ const useFirebase = () => {
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((user) => {
-                setAuthError('');
                 const destination = location?.state?.from || '/';
                 navigate(destination);
+                setAuthError('');
             })
             .catch((error) => {
                 setAuthError(error.message);
@@ -83,7 +83,6 @@ const useFirebase = () => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
-                
             }
             else {
                 // user is signed out

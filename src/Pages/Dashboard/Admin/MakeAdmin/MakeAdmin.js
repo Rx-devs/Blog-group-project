@@ -11,12 +11,12 @@ const MakeAdmin = () => {
         setEmail(e.target.value);
     }
     const handleAdminSubmit = (e) => {
-        const user ={email}
+        const user = { email }
         fetch('https://quiet-sierra-31697.herokuapp.com/users/admin', {
             method: 'PUT',
             headers: {
-                'authorization':`Bearer ${token}`,
-                'content-type':'application/json'
+                'authorization': `Bearer ${token}`,
+                'content-type': 'application/json'
             },
             body: JSON.stringify(user)
         })
@@ -33,14 +33,14 @@ const MakeAdmin = () => {
     }
     return (
         <Grid container>
-            <Grid item xs={12} md={4} sx={{mx:'auto'}}>
+            <Grid item xs={12} md={4} sx={{ mx: 'auto' }}>
                 <Card sx={{ p: 4 }} variant="outlined">
-                    <Typography sx={{ textAlign:'center'}} variant="h5" gutterBottom component="div">
+                    <Typography sx={{ textAlign: 'center' }} variant="h5" gutterBottom component="div">
                         Make An Admin
                     </Typography>
                     <form onSubmit={handleAdminSubmit}>
                         <TextField
-                            sx={{width:'90%', mb:2}}
+                            sx={{ width: '90%', mb: 2 }}
                             label="Email"
                             type="email"
                             onBlur={handleFieldOnBlur}

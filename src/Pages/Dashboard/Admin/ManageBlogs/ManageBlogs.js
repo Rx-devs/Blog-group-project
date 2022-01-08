@@ -42,7 +42,7 @@ const ManageBlogs = () => {
 
     return (
         <Box>
-            <Typography sx={{ textAlign: 'left', my:2 }} variant="h5" component="div" gutterBottom>
+            <Typography sx={{ textAlign: 'left', my: 2 }} variant="h5" component="div" gutterBottom>
                 Manage All blogs
             </Typography>
             <TableContainer component={Paper}>
@@ -58,7 +58,7 @@ const ManageBlogs = () => {
                         {blogs.map((blog) => (
                             <StyledTableRow key={blog._id}>
                                 <StyledTableCell component="th" scope="row">
-                                    <img style={{width:'100px'}} src={blog.blog_image} alt="Blog" />
+                                    <img style={{ width: '100px' }} src={blog.blog_image} alt="Blog" />
                                 </StyledTableCell>
                                 <StyledTableCell align="center">{blog.blog_name}</StyledTableCell>
                                 <StyledTableCell align="center">
