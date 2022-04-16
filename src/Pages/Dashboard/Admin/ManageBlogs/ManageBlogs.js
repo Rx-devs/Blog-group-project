@@ -14,7 +14,7 @@ const ManageBlogs = () => {
     const [blogs, setBlogs] = React.useState([]);
 
     React.useEffect(() => {
-        fetch(`https://quiet-sierra-31697.herokuapp.com/allBlogs`)
+        fetch(`https://dev-blogs-server.herokuapp.com/allBlogs`)
             .then(res => res.json())
             .then(data => setBlogs(data))
         

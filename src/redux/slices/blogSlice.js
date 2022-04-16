@@ -3,21 +3,21 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 export const fetchAllBlogs = createAsyncThunk(
     'blog/fetchAllBlogs',
     async () => {
-        const response = await fetch('https://quiet-sierra-31697.herokuapp.com/allBlogs')
+        const response = await fetch('https://dev-blogs-server.herokuapp.com/allBlogs')
             .then(res => res.json())
         return response
     })
 export const fetchProgrammingBlogs = createAsyncThunk(
     'blog/fetchProgrammingBlogs',
     async () => {
-        const response = await fetch('https://quiet-sierra-31697.herokuapp.com/allBlogs')
+        const response = await fetch('https://dev-blogs-server.herokuapp.com/allBlogs')
             .then(res => res.json())
         return response.filter(blog => blog.blog_catagory === 'programming')
     })
 export const fetchCarrierBlogs = createAsyncThunk(
     'blog/fetchCarrierBlogs',
     async () => {
-        const response = await fetch('https://quiet-sierra-31697.herokuapp.com/allBlogs')
+        const response = await fetch('https://dev-blogs-server.herokuapp.com/allBlogs')
             .then(res => res.json())
         return response.filter(blog => blog.blog_catagory === 'Carrier')
     })

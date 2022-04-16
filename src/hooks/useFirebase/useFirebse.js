@@ -93,7 +93,7 @@ const useFirebase = () => {
     }, [auth]);
 
     useEffect(() => {
-        fetch(`https://quiet-sierra-31697.herokuapp.com/users/${user.email}`)
+        fetch(`https://dev-blogs-server.herokuapp.com/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email]);
@@ -111,7 +111,7 @@ const useFirebase = () => {
     // send user data to database
     const saveUserToDB = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch(`https://quiet-sierra-31697.herokuapp.com/users`, {
+        fetch(`https://dev-blogs-server.herokuapp.com/users`, {
             method: method,
             headers: {
                 'content-type':'application/json'

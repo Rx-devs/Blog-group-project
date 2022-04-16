@@ -9,7 +9,7 @@ const PostBlog = () => {
     let navigate = useNavigate();
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        fetch('https://quiet-sierra-31697.herokuapp.com/allBlogs', {
+        fetch('https://dev-blogs-server.herokuapp.com/allBlogs', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

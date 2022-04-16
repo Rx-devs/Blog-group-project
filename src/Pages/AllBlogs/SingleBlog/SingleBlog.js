@@ -18,7 +18,7 @@ const SingleBlog = () => {
     const [blog, setBlog] = useState({});
     // load service
     useEffect(() => {
-        fetch(`https://quiet-sierra-31697.herokuapp.com/allBlogs/${blogId}`)
+        fetch(`https://dev-blogs-server.herokuapp.com/allBlogs/${blogId}`)
             .then(res => res.json())
             .then(data => setBlog(data))
     }, [blogId]);
